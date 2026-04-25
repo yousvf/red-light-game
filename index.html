@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Red Light — Fixed Media & Timing</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <audio id="sfx_machine" preload="auto"></audio>
+  <audio id="sfx_bgm" loop src=""></audio>
+
+  <div id="app">
+    <div id="intro">
+      <div id="highscoreDisplay"></div>
+      <div class="menu">
+        <button id="spBtn" class="btn">SINGLE<br>PLAYER</button>
+        <button id="mpBtn" class="btn">MULTI<br>PLAYER</button>
+      </div>
+      <div id="dollWrap">
+        <img id="dollImg" src="imgs/Green-Light-Doll-Squid-Game-Iconic-Figure-PNG.png" alt="Doll">
+      </div>
+      <div class="helpText">Game runs automatically. No buttons needed.</div>
+    </div>
+
+    <div id="game">
+      <div id="colorOverlay"></div>
+      <canvas id="videoCanvas"></canvas>
+      <div id="splitLine"></div>
+
+      <div id="dollVideoWrap">
+         <video id="dollTurn" class="dollVideoLayer" playsinline muted preload="auto"></video>
+         <video id="dollReverse" class="dollVideoLayer" playsinline muted preload="auto"></video>
+      </div>
+      
+      <div id="hud">
+        <div id="statusMsg"></div>
+        <div id="bigText"></div>
+        
+        <div id="leftMsg" class="localMsg"></div>
+        <div id="rightMsg" class="localMsg"></div>
+
+        <div id="single-ui" class="p-ui">
+          <div class="playerLabel">YOUR PROGRESS</div>
+          <div class="progressWrap"><div class="progressInner" id="prog_single"></div></div>
+        </div>
+        
+        <div id="p1-ui" class="p-ui">
+          <div class="playerLabel" style="color: #00e5ff;">PLAYER 1 (LEFT)</div>
+          <div class="progressWrap"><div class="progressInner" id="prog_p1"></div></div>
+        </div>
+        <div id="p2-ui" class="p-ui">
+          <div class="playerLabel" style="color: #4de28d;">PLAYER 2 (RIGHT)</div>
+          <div class="progressWrap"><div class="progressInner" id="prog_p2"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="loadingOverlay">
+      <div class="msg" id="loadingMsg">Initializing camera & model…</div>
+      <div class="hint" id="loadingHint">(Allow camera access when prompted)</div>
+      <div class="retry" style="display:none;">
+        <button id="retryBtn" class="btn">Retry Camera</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/pose-detection@latest/dist/pose-detection.min.js"></script>
+
+  <script src="script.js"></script>
+</body>
+</html>
