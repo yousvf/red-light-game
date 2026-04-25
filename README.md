@@ -1,3 +1,5 @@
+https://yousvf.github.io/red-light-game/
+
 # Red Light, Green Light - Pose Detection Game
 
 An interactive, browser-based recreation of the classic "Red Light, Green Light" game, utilizing computer vision to track player movement in real-time.
